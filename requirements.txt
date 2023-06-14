@@ -6,4 +6,5 @@ scikit-learn
 regex
 catboost
 xgboost
+dill
 -e .

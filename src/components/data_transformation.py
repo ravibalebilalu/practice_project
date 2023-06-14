@@ -36,6 +36,61 @@ class DataTransformation:
                     ("scaling",StandardScaler())
                 ]
             )
-#14:06
-        except:
-            pass
+            logging.info(f"categorical columns:{categorical_features} ")
+            logging.info(f"numerical columns: {numerical_features}")
+
+            preprocessor = ColumnTransformer(
+                [
+                    ("numerical_pipeline",numerical_pipeline,numerical_features),
+                    ("categorical_pipeline",categorical_pipeline,categorical_features)
+                ]
+            )
+            return preprocessor
+
+
+        except Exception as e:
+            raise CustomException(e, sys)
+    def initiate_data_transformation(self,train_path,test_path):
+        try:
+            train_df = pd.read_csv(train_path)
+            test_df = pd.read_csv(test_path)
+            logging.info("Read train and test data compleated")
+            
+            logging.info("Obtaining preprocessing object")
+            preprocessing_obj = self.get_data_transformation_obj()
+            target_column_name = "Price_euros"
+            numerical_column = ['Inches', 'Memory', 'height', 'width', 'Clock', 'Weight_in_kg']
+            categorical_column = ['Company', 'Product', 'Gpu', 'OpSys']
+
+            input_feature_train_df = train_df.drop(columns = [target_column_name],axis = 1)
+            target_feature_train_df = train_df[target_column_name]
+
+            input_feature_test_df = test_df.drop(columns = [target_column_name],axis = 1)
+            target_feature_test_df = test_df[target_column_name]
+
+            logging.info("Applying preprocessing object on train and test data")
+
+            input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train_df)
+            input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
+
+
+            train_arr = np.c_[input_feature_train_arr,np.array(target_feature_train_df)]
+            test_arr = np.c_[input_feature_test_arr,np.array(target_feature_test_df)]
+
+            logging.info("Saved preprocessing object")
+
+
+            save_object(
+                file_path = self.data_transformation_config.preprocessor_obj_file_path,obj = preprocessing_obj
+
+            )
+
+            return (
+                train_arr,
+                test_arr,
+                self.data_transformation_config.preprocessor_obj_file_path
+
+            )
+
+        except Exception as e:
+            raise CustomException(e, sys)
