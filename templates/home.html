@@ -1,0 +1,48 @@
+<html>
+<body>
+    <div class="login">
+       <h1> Laptop Price Predictor</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend> Laptop Price Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Inches</label>
+            <input class="form-control" type="text" name="inches" placeholder="Enter Display Size" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Memory</label>
+            <input class="form-control" type="text" name="memory" placeholder="Enter Memory Size" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Height</label>
+            <input class="form-control" type="text" name="height" placeholder="Enter Height" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Width</label>
+            <input class="form-control" type="text" name="width" placeholder="Enter Width" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Clock</label>
+            <input class="form-control" type="text" name="clock" placeholder="Enter Clock Speed" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Weight (in kg)</label>
+            <input class="form-control" type="text" name="weight" placeholder="Enter Weight in kg" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Company</label>
+            <input class="form-control" type="text" name="company" placeholder="Enter Company Name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Operating System</label>
+            <input class="form-control" type="text" name="opsys" placeholder="Enter Operating System" required>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict">
+        </div>
+    </form>
+    
+   <body>
+</html>

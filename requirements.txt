@@ -7,4 +7,5 @@ regex
 catboost
 xgboost
 dill
+Flask
 -e .

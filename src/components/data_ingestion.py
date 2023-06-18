@@ -60,7 +60,7 @@ if __name__ == "__main__":
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
     
     modeltraining = ModelTrainer()
-    print(modeltraining.initiate_model_trainer(train_arr, test_arr))
+    print("r2 score and best_model :",modeltraining.initiate_model_trainer(train_arr, test_arr))
      
      
     
