@@ -67,12 +67,12 @@ pred_df = pred_dfs.drop("Price_euros",axis = 1)
 
 
 print(pred_df)
-print("Before Prediction")
+ 
 
 predict_pipeline=PredictPipeline()
-print("Mid Prediction")
+ 
 results=predict_pipeline.predict(pred_df)
-print("after Prediction")
+ 
 print("predicted :",results)
 print("Actual :",pred_dfs["Price_euros"].values)
  
