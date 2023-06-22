@@ -2,7 +2,7 @@
 
 This project is on predicting laptop price.
 
-![Laptop](images.jpeg)
+![Laptop](practice_project/images.jpeg)
 
 For simplicity some categorical features are not used in modeling and prediction.
 
