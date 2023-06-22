@@ -1,9 +1,12 @@
-machine learning project
+##machine learning project
 
-This project is not compleated.
+This project is on predicting laptop price.
 
-There is an error in "data_transformation.py "
+For simplicity some categorical features are not used in modeling and prediction.
 
-Due to lack of resources this project is not compleated.
+Below is the main python code to prediction of laptop price:
+practice_project/src/pipelines/predict_pipeline.py
 
-In future it will be updated.
+
+
+
