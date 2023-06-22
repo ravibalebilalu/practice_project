@@ -64,7 +64,7 @@ laptop = pd.read_csv("/config/workspace/practice_project/research/cleaned.csv")
 pred_dfs = laptop.tail(1) 
 pred_df = pred_dfs.drop("Price_euros",axis = 1)
 
-
+print(".............................................")
 
 print(pred_df)
  
